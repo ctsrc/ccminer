@@ -140,6 +140,7 @@ bool bench_algo_switch_next(int thr_id)
 	if (device_sm[dev_id] && device_sm[dev_id] < 300) {
 		// incompatible SM 2.1 kernels...
 		if (algo == ALGO_GROESTL) algo++;
+		if (algo == ALGO_THROESTL) algo++;
 		if (algo == ALGO_MYR_GR) algo++;
 		if (algo == ALGO_NEOSCRYPT) algo++;
 		if (algo == ALGO_WHIRLPOOLX) algo++;

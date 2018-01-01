@@ -252,6 +252,7 @@ Options:\n\
 			fresh       Freshcoin (shavite 80)\n\
 			fugue256    Fuguecoin\n\
 			groestl     Groestlcoin\n\
+			throestl     Dallar\n\
 			heavy       Heavycoin\n\
 			hmq1725     Doubloons / Espers\n\
 			jackpot     JHA v8\n\
@@ -1561,6 +1562,7 @@ static bool stratum_gen_work(struct stratum_ctx *sctx, struct work *work)
 			break;
 		case ALGO_FUGUE256:
 		case ALGO_GROESTL:
+		case ALGO_THROESTL:
 		case ALGO_KECCAK:
 		case ALGO_BLAKECOIN:
 		case ALGO_WHIRLCOIN:
@@ -1696,6 +1698,7 @@ static bool stratum_gen_work(struct stratum_ctx *sctx, struct work *work)
 		case ALGO_FRESH:
 		case ALGO_FUGUE256:
 		case ALGO_GROESTL:
+		case ALGO_THROESTL:
 		case ALGO_KECCAKC:
 		case ALGO_LBRY:
 		case ALGO_LYRA2v2:
@@ -2355,6 +2358,7 @@ static void *miner_thread(void *userdata)
 			break;
 
 		case ALGO_GROESTL:
+		case ALGO_THROESTL:
 		case ALGO_DMD_GR:
 			rc = scanhash_groestlcoin(thr_id, &work, max_nonce, &hashes_done);
 			break;
