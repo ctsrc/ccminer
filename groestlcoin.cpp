@@ -22,6 +22,10 @@ void groestlhash(void *state, const void *input)
 	sph_groestl512(&ctx_groestl, hash, 64);
 	sph_groestl512_close(&ctx_groestl, hash);
 
+	sph_groestl512_init(&ctx_groestl);
+	sph_groestl512(&ctx_groestl, hash, 64);
+	sph_groestl512_close(&ctx_groestl, hash);
+
 	memcpy(state, hash, 32);
 }
 

@@ -47,11 +47,11 @@ void groestlcoin_gpu_hash_quad(uint32_t threads, uint32_t startNounce, uint32_t 
 		to_bitslice_quad(paddedInput, msgBitsliced);
 
 		uint32_t state[8];
-		for (int round=0; round<2; round++)
+		for (int round=0; round<3; round++)
 		{
 			groestl512_progressMessage_quad(state, msgBitsliced);
 
-			if (round < 1)
+			if (round < 2)
 			{
 				// Verkettung zweier Runden inclusive Padding.
 				msgBitsliced[ 0] = __byte_perm(state[ 0], 0x00800100, 0x4341 + ((threadIdx.x%4)==3)*0x2000);
